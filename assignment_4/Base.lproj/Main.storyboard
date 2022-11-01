@@ -16,8 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lci-ei-a09">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lci-ei-a09">
                                 <rect key="frame" x="9" y="38" width="372" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText">
                                     <fragment content="0">
@@ -30,8 +31,9 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="twX-ad-5YC">
-                                <rect key="frame" x="9" y="693" width="183" height="131"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="twX-ad-5YC">
+                                <rect key="frame" x="9" y="693" width="183" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <color key="tintColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                 <state key="normal" title="Button"/>
@@ -412,16 +414,6 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="lci-ei-a09" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-9" id="E81-48-g2g"/>
-                            <constraint firstItem="twX-ad-5YC" firstAttribute="trailing" secondItem="Omk-MY-Ohw" secondAttribute="trailing" id="EAs-re-QBx"/>
-                            <constraint firstItem="lci-ei-a09" firstAttribute="trailing" secondItem="dSA-jO-PGj" secondAttribute="trailing" id="Ndq-xM-4Vj"/>
-                            <constraint firstItem="twX-ad-5YC" firstAttribute="leading" secondItem="n3w-04-LlD" secondAttribute="leading" id="UJn-7j-6v0"/>
-                            <constraint firstItem="twX-ad-5YC" firstAttribute="top" secondItem="n3w-04-LlD" secondAttribute="bottom" constant="8" id="fPD-Tm-cY4"/>
-                            <constraint firstItem="lci-ei-a09" firstAttribute="leading" secondItem="cC6-W9-GyX" secondAttribute="leading" id="igg-8M-5Ag"/>
-                            <constraint firstItem="cC6-W9-GyX" firstAttribute="top" secondItem="lci-ei-a09" secondAttribute="bottom" constant="8" id="tnZ-Kg-8ro"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="twX-ad-5YC" secondAttribute="bottom" constant="-14" id="woD-W5-Y0C"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="calOutput" destination="lci-ei-a09" id="h1H-pS-PAY"/>
