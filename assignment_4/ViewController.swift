@@ -35,6 +35,7 @@ class ViewController: UIViewController {
      numbers you are inputting into the calculator
      */
     func updateOutput(input : Double){
+        nextInput = true
         if(currOuput == 0){
             currOuput = input
             calOutput.text = String(currOuput)
@@ -66,6 +67,7 @@ class ViewController: UIViewController {
     func calulate(input : String){
        
         if(nextInput){
+            nextInput = false
             if(decimal){
                 currOuput /= pow(10.0, Double(shift))
             }
@@ -114,12 +116,13 @@ class ViewController: UIViewController {
                     print(temp)
                     temp = currOuput
                     equlAgain = true
+                    nextInput = true
                     calulate(input: currOp)
                 default :
                     print("Invalid Input")
                 
-                
             }
+            calOutput.text = input
             firstInput = false
             if(equlAgain == false){
                 currOuput = 0
@@ -152,6 +155,7 @@ class ViewController: UIViewController {
     @IBAction func plusButton(_ sender: Any) {
         repeatEqualFix()
         calulate(input: "+")
+        
          
     }
     
