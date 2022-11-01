@@ -27,6 +27,8 @@ class ViewController: UIViewController {
         currOuput = 0
         shift = 0
         decimal = false
+        equlAgain = false
+        firstInput = true
     }
     /*
      This funciton handles the real time output of the calculator so you can see the
@@ -60,6 +62,7 @@ class ViewController: UIViewController {
      */
     var temp : Double = 0.0
     var equlAgain : Bool = false
+    var firstInput = true
     func calulate(input : String){
        
         if(nextInput){
@@ -68,39 +71,47 @@ class ViewController: UIViewController {
             }
             decimal = false
             shift = 0
+            if(equlAgain == false){
+                temp = 0
+            }
             switch(input){
                 case "+" :
                     valTemp += currOuput
                 case "-" :
-                if(valTemp == 0){
+                if(firstInput){
                     valTemp = currOuput
+                    firstInput = false
                 }
                 else{
                     valTemp -= currOuput
                 }
                     
                 case "x" :
-                    if(valTemp == 0){
+                    if(firstInput){
                         valTemp = currOuput
+                        firstInput = false
                     }
                     else{
                         valTemp *= currOuput
                     }
                 case "/" :
-                    if(valTemp == 0){
+                    if(firstInput){
                         valTemp = currOuput
+                        firstInput = false
                     }
                     else{
                         valTemp /= currOuput
                     }
                 case "%" :
-                    if(valTemp == 0){
+                    if(firstInput){
                         valTemp = currOuput
+                        firstInput = false
                     }
                     else{
                         valTemp = Double(Int(valTemp) % Int(currOuput))
                     }
                 case "=" :
+                    print(temp)
                     temp = currOuput
                     equlAgain = true
                     calulate(input: currOp)
@@ -109,12 +120,13 @@ class ViewController: UIViewController {
                 
                 
             }
+            firstInput = false
             if(equlAgain == false){
                 currOuput = 0
             }
             else{
                 currOuput = temp
-                equlAgain = false
+                //equlAgain = false
             }
             if(input != "="){
                 currOp = input
@@ -122,7 +134,12 @@ class ViewController: UIViewController {
         }
         
     }
-    
+    func repeatEqualFix(){
+        if(equlAgain){
+            currOuput = 0
+        }
+        equlAgain = false
+    }
     //operations
     
     @IBAction func equButton(_ sender: Any) {
@@ -133,25 +150,30 @@ class ViewController: UIViewController {
         
     }
     @IBAction func plusButton(_ sender: Any) {
+        repeatEqualFix()
         calulate(input: "+")
-        
+         
     }
     
     @IBAction func minusButton(_ sender: Any) {
+        repeatEqualFix()
         calulate(input: "-")
-        
+
     }
     @IBAction func divButton(_ sender: Any) {
+        repeatEqualFix()
         calulate(input: "/")
-        
+
     }
     @IBAction func modButton(_ sender: Any) {
+        repeatEqualFix()
         calulate(input: "%")
-        
+
     }
     @IBAction func mutlButton(_ sender: Any) {
+        repeatEqualFix()
         calulate(input: "x")
-        
+
     }
     
     @IBAction func decButton(_ sender: Any) {
